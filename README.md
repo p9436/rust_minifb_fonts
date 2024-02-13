@@ -24,7 +24,7 @@ fn main() {
 
     let mut buffer: Vec<u32> = vec![0; WINDOW_WIDTH * WINDOW_HEIGHT];
 
-    let text = font5x8::new_renderer(WINDOW_WIDTH, WINDOW_HEIGHT, color);
+    let mut text = font5x8::new_renderer(WINDOW_WIDTH, WINDOW_HEIGHT, 0xFFFFFFFF);
     text.draw_text(&mut buffer, 10, 20, "Hello World!");
     text.set_color(0xff_00_00);
     text.draw_text(&mut buffer, 10, 180, "Press ESC to exit");
