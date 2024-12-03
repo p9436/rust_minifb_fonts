@@ -3,7 +3,7 @@
 
 use crate::{FbFontRenderer, FbFont};
 
-pub fn new_renderer(buf_width: usize, buf_height: usize, color: u32) -> FbFontRenderer {
+pub fn new_renderer(buf_width: usize, buf_height: usize, color: u32) -> FbFontRenderer<CHAR_WIDTH> {
     FbFontRenderer {
         buf_width,
         buf_height,
@@ -12,7 +12,7 @@ pub fn new_renderer(buf_width: usize, buf_height: usize, color: u32) -> FbFontRe
             char_w: CHAR_WIDTH,
             char_h: CHAR_HEIGHT,
             char_bitmap_padding: CHAR_BITMAP_PADDING,
-            font_data: FONT_DATA.iter().map(|&array| array.to_vec()).collect(),
+            font_data: FONT_DATA,
         }
     }
 }
