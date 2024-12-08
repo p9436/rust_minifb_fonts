@@ -2,21 +2,21 @@ pub mod font4x6;
 pub mod font5x8;
 pub mod font6x8;
 
-pub struct FbFont {
+pub struct FbFont<const CHAR_WIDTH: usize> {
     pub char_w: usize,
     pub char_h: usize,
     pub char_bitmap_padding: usize,
-    pub font_data: Vec<Vec<u8>>,
+    pub font_data: [[u8; CHAR_WIDTH]; 256],
 }
 
-pub struct FbFontRenderer {
+pub struct FbFontRenderer<const CHAR_WIDTH: usize> {
     pub buf_width: usize,
     pub buf_height: usize,
     pub color: u32,
-    pub font: FbFont,
+    pub font: FbFont<CHAR_WIDTH>,
 }
 
-impl FbFontRenderer {
+impl<const CHAR_WIDTH: usize> FbFontRenderer<CHAR_WIDTH> {
     pub fn set_color(&mut self, color: u32) {
         self.color = color;
     }
